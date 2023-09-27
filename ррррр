@@ -1,0 +1,99 @@
+import math
+def print_start():
+    print('Введите номер операции:')
+    print('1-сложение')
+    print('2-вычитание')
+    print('3-умножение')
+    print('4-деление')
+    print('5-возведение в степень')
+    print('6-корень')
+    print('7-факториал')
+    print('8-синус')
+    print('9-косинус')
+    print('10-тангенс')
+    print('11-площадь прямоугольника')
+    print('12-четность числа')
+    print('13-сумма цифр числа')
+ 
+def rectangle_area(width,hight):
+    return (width*hight)
+
+def is_even(number):
+    if number%2==0:
+        return True
+    else:
+        return False
+        
+def sum_digits(number):
+    s = 0
+    for i in str(number):
+        s += int(i)
+    return s
+
+def calc_two_digit(n,a,b):
+    if n==1: 
+        return(a+b) 
+ 
+    if n==2: 
+        return(a-b) 
+     
+    if n==3: 
+        return(a*b) 
+ 
+      
+    if n==4: 
+        while b==0: 
+            print('eror') 
+            b=float(input()) 
+        return(float(a)/float(b)) 
+         
+    if n==5: 
+        return(a**b)    
+    if n== 11:
+        return (rectangle_area(a,b))
+
+
+def calc_one_digit(n,a):
+    if n==6: 
+        return(a**0.5)    
+ 
+    if n==7: 
+        f=1 
+        for i in range(1,a+1): 
+            f=f*i 
+        return(f) 
+ 
+    if n==8: 
+        return(math.sin(math.radians(a)))    
+         
+ 
+    if n==9: 
+        return(math.cos(math.radians(a)))    
+         
+ 
+    if n==10: 
+        return(math.tan(math.radians(a))) 
+    if n==12:
+        return(is_even(n))
+    if n==13:
+        return(sum_digits(n))
+
+
+
+print_start()
+n=int(input()) 
+while n<14: 
+    if n<6 or n==11:
+        print('Введите первое число')
+        a=int(input())
+        print('Введите второе число')
+        b=int(input()) 
+        print(calc_two_digit(n,a,b))
+ 
+    else:
+        print('Введите число')
+        a=int(input())
+        print(calc_one_digit(n,a))
+        
+    print('Введите номер следующей операции') 
+    n=int(input())
